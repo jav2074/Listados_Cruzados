@@ -1,0 +1,46 @@
+<p>{{$ctrl.title}}</p>
+<!-- <pre>{{$ctrl.list}}</pre> -->
+<!-- <p ng-repeat="x in $ctrl.list track by $index">
+    {{ x.id }} {{ x.name }}
+</p> -->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Index</th>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="x in $ctrl.list | orderBy: 'name'">
+            <td>{{ $index }}</td>
+            <td>{{ x.id }}</td>
+            <td>{{ x.name }}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+<!-- https://desarrolloweb.com/articulos/bindings-componentes-angularjs.html -->
+<!-- tipo de bindeo se define por medio de un símbolo, los principales son:
+"=": esto sirve para entregar una referencia a un objeto. 
+    Por tanto cualquier cosa que se esté entregando se comparte entre componentes.
+"@": esto sirve para entregar un valor. No existe binding de ningún tipo.
+"<": esto sirve para bindear en una única dirección, o 1 way binding. 
+    El padre le transfiere al hijo un valor, pero aunque lo modifique el hijo el nuevo 
+    valor no viaja al padre. Sin embargo, si el padre lo cambia, sí se cambia en el hijo. -->
+
+<!-- JS:
+app.component("myTable", {
+    templateUrl: "./components/my-table/my-table.html",
+    bindings: {
+        title: '@',
+        list: '='
+    },
+    controller: "myCtrl",
+}); -->
+
+<!-- HTML:
+<my-table title={{titleTable}} list=listOrigin></my-table> -->
